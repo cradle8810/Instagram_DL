@@ -5,6 +5,7 @@ INSTALOADER_PATH="${HOME}/.local/bin/instaloader"
 
 if [ ! -f "{INSTALOADER_PATH}" ]; then
     echo "No instaloader in ${INSTALOADER_PATH}" > /dev/stderr
+    exit 1
 fi
 
 
