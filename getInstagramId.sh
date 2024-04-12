@@ -48,7 +48,7 @@ echo "There are ${LISTCOUNT} URLs found."
 
 # Download Image into images/ dir
 DIRNAME_PATTERN="${TEMPDIR}/{target}"
-while read id; do
+while read -r id; do
 echo "Downloading ${id}."
 "${INSTALOADER_PATH}" \
     --dirname-pattern "${DIRNAME_PATTERN}" \
@@ -65,7 +65,7 @@ xargs -I{} -n1 grep -B 14 {} "${POCKETJSON}" < list | \
 find "${TEMPDIR}/" -type f -exec mv {} ${IMAGEDIR}/ \;
 
 # Remove Wastes.
-rm -fr "${IMAGEDIR}/*.xz" "${IMAGEDIR}/*.txt"
+rm -fv "${IMAGEDIR}/*.xz" "${IMAGEDIR}/*.txt"
 
 # Make Archives
 DATE=$(date +%Y%m%d)
