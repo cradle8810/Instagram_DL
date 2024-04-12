@@ -65,8 +65,8 @@ xargs -I{} -n1 grep -B 14 {} "${POCKETJSON}" < list | \
 find "${TEMPDIR}/" -type f -exec mv {} ${IMAGEDIR}/ \;
 
 # Remove Wastes.
-rm -fv "${IMAGEDIR}/*.xz" "${IMAGEDIR}/*.txt"
+rm -fv "${IMAGEDIR}"/*.xz "${IMAGEDIR}"/*.txt
 
 # Make Archives
 DATE=$(date +%Y%m%d)
-zip "Instagram_${DATE}.zip" "${IMAGEDIR}/"
+zip -r "Instagram_${DATE}.zip" "${IMAGEDIR}/"
